@@ -55,14 +55,15 @@ services:
     - /opt/postgres/data:/var/lib/postgresql/data
 
  gitlab:
-  image: gitlab/gitlab-ce:8.14.4-ce.0
+  image: gitlab/gitlab-ce:9.1.3-ce.0
   restart: always
   networks:
     - prodnetwork
   environment:
     GITLAB_OMNIBUS_CONFIG: |
       # external_url 'https://gitlab.example.com'
-      # Add any other gitlab.rb configuration here, each on its own line
+      # Add any other gitlab.rb configuration here, each on its own line 
+      # (TODO: add SMTP, HTTPS, ... see https://docs.gitlab.com/omnibus/docker/README.html)
   ports:
     - "80:80"
     - "443:443"
